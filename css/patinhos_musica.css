@@ -1,0 +1,151 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+body {
+  font-family: 'Bangers', cursive;
+}
+
+#patinhos {
+  position: fixed;
+  bottom: 10%;
+  left: 0%;
+  display: flex;
+}
+
+.patinhosAnimacaoIda {
+  animation: movePatinhosIda 8s linear 0s 1 forwards;
+}
+
+@keyframes movePatinhosIda {
+  0% {
+    left: 0%;
+    transform: translateX(-100%);
+  }
+  100% {
+    left: 100%;
+    transform: translateX(0%);
+  }
+}
+
+.patinhosAnimacaoVolta {
+  animation: movePatinhosVolta 4s linear 0s 1 forwards;
+}
+
+@keyframes movePatinhosVolta {
+  0% {
+    left: 100%;
+    transform: translateX(0%);
+  }
+  100% {
+    left: 0%;
+    transform: translateX(-100%);
+  }
+}
+
+#maePata {
+  position: fixed;
+  bottom: 10%;
+  left: 0%;
+  transform: translateX(-100%);
+  display: flex;
+}
+
+.maePataAnimacaoIdaChamar {
+  animation: moveMaePataAnimacaoIdaChamar 2s linear 0s 1 forwards;
+}
+
+@keyframes moveMaePataAnimacaoIdaChamar {
+  0% {
+    left: 0%;
+    transform: translateX(-100%);
+  }
+  100% {
+    left: 0%;
+    transform: translateX(0%);
+  }
+}
+
+.maePataAnimacaoVoltaChamar {
+  animation: moveMaePataAnimacaoVoltaChamar 4s linear 0s 1 forwards;
+}
+
+@keyframes moveMaePataAnimacaoVoltaChamar {
+  0% {
+    left: 0%;
+    transform: translateX(0%);
+  }
+  100% {
+    left: 0%;
+    transform: translateX(-100%);
+  }
+}
+
+.maePataAnimacaoIdaBuscar {
+  animation: moveMaePataAnimacaoIdaBuscar 14.5s linear 0s 1 forwards;
+}
+
+@keyframes moveMaePataAnimacaoIdaBuscar {
+  0% {
+    left: 0%;
+    transform: translateX(0%);
+  }
+  100% {
+    left: 100%;
+    transform: translateX(-100%);
+  }
+}
+
+.maePataAnimacaoVoltaBuscar {
+  animation: moveMaePataAnimacaoVoltaBuscar 4s linear 0s 1 forwards;
+}
+
+@keyframes moveMaePataAnimacaoVoltaBuscar {
+  0% {
+    left: 100%;
+    transform: translateX(-100%);
+  }
+  100% {
+    left: 0%;
+    transform: translateX(-200%);
+  }
+}
+
+#montanha {
+  position: absolute;
+  bottom: 8%;
+  right: 0%;
+  transform: translateX(40%);
+}
+
+#piso {
+  position: absolute;
+  bottom: 0%;
+  right: 0%;
+}
+
+body {
+  background-image: url('../image/background.png');
+  overflow: hidden;
+}
+
+#textoMusica {
+  width: 600px;
+  font-size: 3rem;
+  font-weight: 600;
+  color: beige;
+  position: fixed;
+  left: 50%;
+  top : 10%;
+  transform: translate(-50%);
+}
+
+.versoMusica {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  display: none;
+}
+
+.versoCantando {
+  display: block;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Música dos Patinhos</title>
+  <link rel="icon" href="./image/duck_icon.png">
+
+  <link rel="stylesheet" href="./bootstrap/bootstrap.css">
+
+  <link rel="stylesheet" href="./css/index.css">
+
+  <script>
+    function redirecionar(event) {
+      event.preventDefault();
+
+      let numeroPatinhosInput = document.getElementById('numeroPatinhos');
+      let numeroPatinhos = numeroPatinhosInput.value;
+
+      let url = './html/patinhos_musica.html?numeroPatinhos=' + encodeURIComponent(numeroPatinhos);
+      if (numeroPatinhos > 0) window.location.href = url;
+      else alert("Digite um número inteiro positivo!")
+    }
+
+    function verificarCampo(input) {
+      let iniciarBtn = document.getElementById('iniciar');
+      if (input.value.trim() !== '') {
+        iniciarBtn.style.display = 'inline-block';
+        iniciarBtn.disabled = false;
+      } else {
+        iniciarBtn.style.display = 'none';
+        iniciarBtn.disabled = true;
+      }
+    }
+  </script>
+
+</head>
+<body class="container-fluid">
+    
+  <video id="video-background" autoplay muted loop>
+    <source src="image/duck_background.mp4" type="video/mp4">
+    Desculpe, seu navegador não suporta vídeos em HTML5.
+  </video>
+
+  <form method="POST" onsubmit="redirecionar(event)">
+    <input type="number" name="numeroPatinhos" id="numeroPatinhos" placeholder="Digite o número de patinhos" oninput="this.value = this.value.replace(/\D/g, ''); verificarCampo(this);">
+
+    <input type="submit" id="iniciar" value="Iniciar Música" disabled>
+  </form>
+  
+</body>
+</html>
