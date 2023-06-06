@@ -131,34 +131,25 @@ function emitirSom(palavra, numeroPatinhos = 0) {
     utterance.onend = function() {
       if (numeroVersoCantando % 8 === 0) {
         animarPatinhos(numeroPatinhos, false);
-        console.log("if1");
         patinhosAnimacaoIda();
       } else if (numeroVersoCantando === (numeroVerso - 4)) {
-        console.log("if3");
         animarMaePata(2, false);
       } else if ((numeroVersoCantando % 8 === 4)) {
-        console.log("if2");
         animarMaePata(1, false);
         maePataAnimacaoIdaChamar();
       } else if (numeroPatinhos && (numeroVersoCantando === (numeroVerso - 3))) {
-        console.log("if4");
         animarMaePata(1, true);
         maePataAnimacaoVoltaBuscar();
         animarPatinhos(numeroPatinhos, true);
         patinhosAnimacaoVolta();
       } else if ((numeroVersoCantando % 8 === 5)) {
-        console.log("if5");
         animarMaePata(2, false);
       } else if (numeroPatinhos && (numeroVersoCantando % 8 === 6 )) {
-        console.log("if6");
         animarMaePata(1, true);
         maePataAnimacaoVoltaChamar();
         animarPatinhos(numeroPatinhos, true);
         patinhosAnimacaoVolta();
       } else if (numeroVersoCantando % 8 === 6 && (numeroVersoCantando !== (numeroVerso - 2))) {
-        console.log("if7");
-        console.log("numeroVersoCantando = ", numeroVersoCantando);
-        console.log("numeroVerso = ", numeroVerso);
         animarMaePata(1, false);
         maePataAnimacaoIdaBuscar();
       }
@@ -240,15 +231,15 @@ function animarPatinhos(numeroPatinhos, isVolta){
     function animate() {
       ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
       ctx.imageSmoothingEnabled = false;
-      ctx.save(); // Salva o estado atual do contexto
+      ctx.save();
       if (isVolta) {
-        ctx.scale(-1, 1); // Inverte na horizontal
-        ctx.translate(-CANVAS_WIDTH, 0); // Ajusta a posição após a inversão
+        ctx.scale(-1, 1);
+        ctx.translate(-CANVAS_WIDTH, 0); 
       }
         let position = Math.floor(gameFrame / staggerFrames) % (maxFrameX[frameY]);
       frameX = position * spriteWidth;
       ctx.drawImage(playerImage, frameX, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-      ctx.restore(); // Restaura o estado anterior do contexto
+      ctx.restore(); 
       gameFrame++;
       requestAnimationFrame(animate);
     }
@@ -276,15 +267,15 @@ function animarMaePata(animacao, isVolta){
   function animate() {
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     ctx.imageSmoothingEnabled = false;
-    ctx.save(); // Salva o estado atual do contexto
+    ctx.save(); 
     if (isVolta) {
-      ctx.scale(-1, 1); // Inverte na horizontal
-      ctx.translate(-CANVAS_WIDTH, 0); // Ajusta a posição após a inversão
+      ctx.scale(-1, 1);
+      ctx.translate(-CANVAS_WIDTH, 0); 
     }
     let position = Math.floor(gameFrame / staggerFrames) % (maxFrameX[frameY]);
     frameX = position * spriteWidth;
     ctx.drawImage(playerImage, frameX, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    ctx.restore(); // Restaura o estado anterior do contexto
+    ctx.restore();
     gameFrame++;
     requestAnimationFrame(animate);
   }
